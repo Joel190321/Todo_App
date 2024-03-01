@@ -1,0 +1,290 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+:root {
+	--hue: 223;
+	--bg: hsl(var(--hue),90%,95%);
+	--fg: hsl(var(--hue),90%,5%);
+	--trans-dur: 0.3s;
+}
+body {
+	background-color: var(--bg);   
+	transition: background-color var(--trans-dur);
+    color: white;
+}
+
+
+ #preload {
+    /* Estilos para el elemento de carga */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    z-index: 9999;
+    
+}
+
+#preload.hidden {
+    /* Estilos cuando el elemento de carga se oculta */
+    opacity: 0;
+    pointer-events: none;
+}  
+main {
+	padding: 1.5em 0;
+   
+    
+}
+.ip {
+	width: 10em;
+	height: 7em;
+    animation: load .7s infinite alternate;
+}
+
+
+.ip__track {
+	stroke: hsl(var(--hue),90%,90%);
+	transition: stroke var(--trans-dur);
+}
+.ip__worm1,
+.ip__worm2 {
+	animation: worm1 2s linear infinite;
+}
+.ip__worm2 {
+	animation-name: worm2;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: hsl(var(--hue),90%,5%);
+		--fg: hsl(var(--hue),90%,95%);
+	}
+	.ip__track {
+		stroke: hsl(var(--hue),90%,15%);
+	}
+}
+
+/* Animation */
+@keyframes worm1 {
+	from {
+		stroke-dashoffset: 0;
+	}
+	50% {
+		animation-timing-function: steps(1);
+		stroke-dashoffset: -358;
+	}
+	50.01% {
+		animation-timing-function: linear;
+		stroke-dashoffset: 358;
+	}
+	to {
+		stroke-dashoffset: 0;
+	}
+}
+@keyframes worm2 {
+	from {
+		stroke-dashoffset: 358;
+	}
+	50% {
+		stroke-dashoffset: 0;
+	}
+	to {
+		stroke-dashoffset: -358;
+	}
+}
+
+@keyframes load {
+    from{
+        transform: scale(0.20);
+    }
+    to{
+        transform: scale(0.80);
+    }
+}
+
+.alert{
+    transition: .4s;
+    
+}
+
+
+
+.mover{
+    animation: error .2s infinite alternate;
+}
+
+@keyframes error{
+    from{
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(10px);
+    }
+}
+
+.text-alert{
+    width: 200px;
+    height: auto;
+    background-color: bisque;
+    border-color: red;
+    margin: 0 auto;
+    position: absolute;
+    z-index: 1;
+    transform: translateX(-300px);
+    opacity: 0;
+}
+
+footer{
+
+    width: 100%;
+    height: 10vh;
+    background-color: black;
+    display : flex; 
+    justify-content: center; 
+    align-items: center;
+}
+
+.container-footer{
+    margin-top: 100%;
+    color: white;
+}
+
+@media (max-width: 900px){
+    .container-footer{
+        margin-top: 104%;
+      position: absolute;
+     z-index: -1;
+    }
+}
+
+.icons-container{
+    font-size: 25px;
+}
+
+.bx{
+    transition: .4s;
+}
+
+
+
+.btn{
+    transition: .4s;
+}
+
+.btn:hover{
+    transform: translateY(5px);
+}
+
+.cerrar{
+    transform: translateX(5px);
+    transition: .4s;
+}
+
+.fas:hover{
+ transform: translateY(4px);
+ transition: .4s;
+}
+
+@keyframes successAnimation {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(4px);
+    }
+  }
+
+  .bx-menu{
+    
+  }
+  
+  .success-animation {
+    animation: successAnimation 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+
+  .navbar-container{
+    display: inline-flex;
+    width: 100%;
+    height: 30px;
+    justify-content: space-between;
+  }
+
+  .bx-menu-alt-left{
+    font-size: 2.00em;
+    margin-left: 10px;
+  }
+
+  .nav-link{
+    top: -0px;
+    transition: .4s;
+    width: 200px;
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0.989);
+    border-radius: 20px;
+    color: black;
+    position: absolute;
+    transform: translateX(-300px);
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+   z-index: 1;
+    /* opacity: 0; */
+  }
+
+  .nav-link:active{
+    color: green;
+  }
+
+  .close{
+    display: flex;
+    font-size: 2.00em;
+  }
+
+  .bx-x{
+    color: black;
+  }
+
+  .bx-x:hover{
+    color: black;
+  }
+
+
+  
+.nav-link li{
+    list-style: none;
+    color: black;
+    margin-top: 40px;    
+    
+}
+
+.nav-link a{
+    text-decoration: none;
+    color: black;
+}
+
+::-webkit-scrollbar{
+    background-color: black;
+    width: 15px;
+}
+
+::-webkit-scrollbar-track{
+    background-color: black;
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: white;
+    border-radius: 10px;
+    height: 10px;
+}
+
+
